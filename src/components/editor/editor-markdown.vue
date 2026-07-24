@@ -967,6 +967,122 @@ $editor-height-mobile: calc(100vh - 48px - 16px);
           }
         }
       }
+
+      // Blockquote styles (from WikiJS theme)
+      blockquote {
+        padding: 0 1rem 1rem 1rem;
+        background-color: mc('blue-grey', '50');
+        border-left: 55px solid mc('blue-grey', '500');
+        border-radius: .5rem;
+        margin: 1rem 0;
+        position: relative;
+
+        @at-root .theme--dark & {
+          background-color: mc('blue-grey', '900');
+        }
+
+        &::before {
+          display: inline-block;
+          font: normal normal normal 24px/1 "Material Design Icons", sans-serif;
+          position: absolute;
+          margin-top: -12px;
+          top: 50%;
+          left: -38px;
+          color: rgba(255, 255, 255, .7);
+          content: "\F0757";
+        }
+
+        > p:first-child .emoji {
+          margin-right: .5rem;
+        }
+
+        &.valign-center > p {
+          display: flex;
+          align-items: center;
+        }
+
+        &.is-info {
+          background-color: mc('blue', '50');
+          border-color: mc('blue', '300');
+          color: mc('blue', '900');
+
+          &::before {
+            content: "\F02FC";
+          }
+
+          code:not([class^="language-"]) {
+            background-color: mc('blue', '50');
+            color: mc('blue', '800');
+          }
+
+          @at-root .theme--dark & {
+            background-color: mc('blue', '900');
+            color: mc('blue', '50');
+            border-color: mc('blue', '500');
+          }
+        }
+        &.is-warning {
+          background-color: mc('orange', '50');
+          border-color: mc('orange', '300');
+          color: darken(mc('orange', '900'), 10%);
+
+          &::before {
+            content: "\F0026";
+          }
+
+          code:not([class^="language-"]) {
+            background-color: mc('orange', '50');
+            color: mc('orange', '800');
+          }
+
+          @at-root .theme--dark & {
+            background-color: darken(mc('orange', '900'), 5%);
+            color: mc('orange', '100');
+            border-color: mc('orange', '500');
+            box-shadow: 0 0 2px 0 mc('grey', '900');
+          }
+        }
+        &.is-danger {
+          background-color: mc('red', '50');
+          border-color: mc('red', '300');
+          color: mc('red', '900');
+
+          &::before {
+            content: "\F0159";
+          }
+
+          code:not([class^="language-"]) {
+            background-color: mc('red', '50');
+            color: mc('red', '800');
+          }
+
+          @at-root .theme--dark & {
+            background-color: mc('red', '900');
+            color: mc('red', '100');
+            border-color: mc('red', '500');
+          }
+        }
+        &.is-success {
+          background-color: mc('green', '50');
+          border-color: mc('green', '300');
+          color: mc('green', '900');
+
+          &::before {
+            content: "\F0E1E";
+          }
+
+          code:not([class^="language-"]) {
+            background-color: mc('green', '50');
+            color: mc('green', '800');
+          }
+
+          @at-root .theme--dark & {
+            background-color: mc('green', '900');
+            color: mc('green', '50');
+            border-color: mc('green', '500');
+          }
+        }
+      }
     }
   }
 
