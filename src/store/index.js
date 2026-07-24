@@ -25,7 +25,7 @@ const editor = {
 
 // Page module (required by vuex-pathify for paths like 'page/locale', 'page/path')
 const pageState = {
-  locale: 'en',
+  locale: 'zh',
   path: 'home'
 }
 

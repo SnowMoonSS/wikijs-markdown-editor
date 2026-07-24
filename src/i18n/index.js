@@ -41,11 +41,46 @@ const messages = {
     'common:pageSelector.folderEmptyWarning': 'This folder is empty.',
     'common:actions.cancel': 'Cancel',
     'common:actions.select': 'Select'
+  },
+  zh: {
+    'editor:backToEditor': '返回编辑器',
+    'editor:markup.bold': '粗体',
+    'editor:markup.italic': '斜体',
+    'editor:markup.strikethrough': '删除线',
+    'editor:markup.heading': '标题 {level}',
+    'editor:markup.subscript': '下标',
+    'editor:markup.superscript': '上标',
+    'editor:markup.blockquote': '引用',
+    'editor:markup.blockquoteInfo': '信息引用',
+    'editor:markup.blockquoteSuccess': '成功引用',
+    'editor:markup.blockquoteWarning': '警告引用',
+    'editor:markup.blockquoteError': '错误引用',
+    'editor:markup.unorderedList': '无序列表',
+    'editor:markup.orderedList': '有序列表',
+    'editor:markup.inlineCode': '行内代码',
+    'editor:markup.keyboardKey': '键盘按键',
+    'editor:markup.horizontalBar': '水平分隔线',
+    'editor:markup.toggleSpellcheck': '切换拼写检查',
+    'editor:markup.togglePreviewPane': '切换预览窗格',
+    'editor:markup.insertLink': '插入链接',
+    'editor:markup.insertAssets': '插入资源',
+    'editor:markup.insertDiagram': '插入图表',
+    'editor:markup.distractionFreeMode': '免打扰模式',
+    'editor:markup.markdownFormattingHelp': 'Markdown 格式帮助',
+    'editor:markup.noSelectionError': '请先选中文本。',
+    'common:pageSelector.createTitle': '创建新页面',
+    'common:pageSelector.moveTitle': '移动页面',
+    'common:pageSelector.selectTitle': '选择页面',
+    'common:pageSelector.virtualFolders': '文件夹',
+    'common:pageSelector.pages': '页面',
+    'common:pageSelector.folderEmptyWarning': '此文件夹为空。',
+    'common:actions.cancel': '取消',
+    'common:actions.select': '选择'
   }
 }
 
 const i18n = new VueI18n({
-  locale: 'en',
+  locale: 'zh',
   fallbackLocale: 'en',
   messages
 })
