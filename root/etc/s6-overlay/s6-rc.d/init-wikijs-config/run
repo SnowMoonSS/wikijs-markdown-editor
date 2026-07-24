@@ -1,0 +1,3 @@
+#!/usr/bin/with-contenv bash
+# Set correct ownership for the static files
+lsiown -R abc:abc /opt/wikijs-markdown-editor
