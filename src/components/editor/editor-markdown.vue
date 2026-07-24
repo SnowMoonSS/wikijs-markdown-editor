@@ -762,9 +762,9 @@ export default {
       this.onCmInput(this.$store.get('editor/content'))
     })
     if (this.$vuetify.breakpoint.mdAndUp) {
-      this.cm.setSize(null, 'calc(100vh - 112px - 24px)')
+      this.cm.setSize(null, 'calc(100vh - 48px - 24px)')
     } else {
-      this.cm.setSize(null, 'calc(100vh - 112px - 16px)')
+      this.cm.setSize(null, 'calc(100vh - 48px - 16px)')
     }
 
     // Set Keybindings
@@ -862,8 +862,8 @@ export default {
 
 <style lang='scss'>
 
-$editor-height: calc(100vh - 112px - 24px);
-$editor-height-mobile: calc(100vh - 112px - 16px);
+$editor-height: calc(100vh - 48px - 24px);
+$editor-height-mobile: calc(100vh - 48px - 16px);
 
 .editor-markdown {
   &-main {
@@ -914,15 +914,9 @@ $editor-height-mobile: calc(100vh - 112px - 16px);
 
     &-content {
       height: $editor-height;
-      overflow-y: scroll;
+      overflow-y: auto;
       padding: 0;
-      width: calc(100% + 17px);
-      // -ms-overflow-style: none;
-
-      // &::-webkit-scrollbar {
-      //   width: 0px;
-      //   background: transparent;
-      // }
+      width: 100%;
 
       @include until($tablet) {
         height: $editor-height-mobile;
