@@ -53,6 +53,7 @@ import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace'
 // Import custom SCSS
 import './scss/components/codemirror.scss'
 import './scss/components/katex.scss'
+import './scss/wiki-theme.scss'
 
 Vue.use(Vuetify)
 
