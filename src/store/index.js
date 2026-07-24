@@ -7,9 +7,12 @@ Vue.use(Vuex)
 pathify.options.mapping = 'standard'
 pathify.options.deep = true
 
+const STORAGE_KEY = 'wikijs-md-editor-content'
+const defaultContent = '# Hello World\n\nWelcome to **WikiJS Markdown Editor**.\n\nStart typing your markdown here...'
+
 // Editor module (required by vuex-pathify for paths like 'editor/content', 'editor/activeModal')
 const editorState = {
-  content: '# Hello World\n\nWelcome to **WikiJS Markdown Editor**.\n\nStart typing your markdown here...',
+  content: localStorage.getItem(STORAGE_KEY) || defaultContent,
   mode: 'edit',
   editorKey: 'markdown',
   activeModal: '',
@@ -37,7 +40,20 @@ const page = {
 }
 
 const store = new Vuex.Store({
-  plugins: [pathify.plugin],
+  plugins: [
+    pathify.plugin,
+    // Auto-save editor content to localStorage on every change
+    (store) => {
+      let prevContent = store.state.editor.content
+      store.subscribe((mutation, state) => {
+        const content = state.editor.content
+        if (content !== prevContent) {
+          prevContent = content
+          localStorage.setItem(STORAGE_KEY, content)
+        }
+      })
+    }
+  ],
   modules: {
     editor,
     page
