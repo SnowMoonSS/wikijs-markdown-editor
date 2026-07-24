@@ -968,6 +968,19 @@ $editor-height-mobile: calc(100vh - 48px - 16px);
         }
       }
 
+      // Paragraph styles (from WikiJS theme — affects blockquote content layout)
+      p {
+        padding: 1rem 0 0 0;
+        margin: 0;
+
+        @at-root .v-application & {
+          margin-bottom: 0;
+        }
+      }
+      > div > p:first-child {
+        padding-top: 0;
+      }
+
       // Blockquote styles (from WikiJS theme)
       blockquote {
         padding: 0 1rem 1rem 1rem;
