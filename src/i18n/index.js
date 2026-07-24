@@ -3,49 +3,44 @@ import VueI18n from 'vue-i18n'
 
 Vue.use(VueI18n)
 
-// Map of translation keys to plain English fallbacks.
-// Keys are in the format `editor:markup.bold` which vue-i18n uses
-// as nested paths: `editor.markup.bold`.
+// WikiJS uses vue-i18next with colon-separated keys (e.g. 'editor:markup.bold').
+// vue-i18n uses dot-separated keys by default, so we flatten the messages to
+// use the exact colon-separated keys that the component's $t() calls expect.
 const messages = {
   en: {
-    editor: {
-      backToEditor: 'Back to Editor',
-      markup: {
-        bold: 'Bold',
-        italic: 'Italic',
-        strikethrough: 'Strikethrough',
-        heading: 'Heading {level}',
-        subscript: 'Subscript',
-        superscript: 'Superscript',
-        blockquote: 'Blockquote',
-        blockquoteInfo: 'Info Blockquote',
-        blockquoteSuccess: 'Success Blockquote',
-        blockquoteWarning: 'Warning Blockquote',
-        blockquoteError: 'Error Blockquote',
-        unorderedList: 'Unordered List',
-        orderedList: 'Ordered List',
-        inlineCode: 'Inline Code',
-        keyboardKey: 'Keyboard Key',
-        horizontalBar: 'Horizontal Bar',
-        toggleSpellcheck: 'Toggle Spellcheck',
-        togglePreviewPane: 'Toggle Preview Pane',
-        insertLink: 'Insert Link',
-        insertAssets: 'Insert Assets',
-        insertDiagram: 'Insert Diagram',
-        distractionFreeMode: 'Distraction Free Mode',
-        markdownFormattingHelp: 'Markdown Formatting Help',
-        noSelectionError: 'You must select some text first.'
-      }
-    },
-    common: {
-      pageSelector: {
-        createTitle: 'Create a New Page',
-        moveTitle: 'Move Page',
-        selectTitle: 'Select a Page',
-        virtualFolders: 'Folders',
-        pages: 'Pages'
-      }
-    }
+    'editor:backToEditor': 'Back to Editor',
+    'editor:markup.bold': 'Bold',
+    'editor:markup.italic': 'Italic',
+    'editor:markup.strikethrough': 'Strikethrough',
+    'editor:markup.heading': 'Heading {level}',
+    'editor:markup.subscript': 'Subscript',
+    'editor:markup.superscript': 'Superscript',
+    'editor:markup.blockquote': 'Blockquote',
+    'editor:markup.blockquoteInfo': 'Info Blockquote',
+    'editor:markup.blockquoteSuccess': 'Success Blockquote',
+    'editor:markup.blockquoteWarning': 'Warning Blockquote',
+    'editor:markup.blockquoteError': 'Error Blockquote',
+    'editor:markup.unorderedList': 'Unordered List',
+    'editor:markup.orderedList': 'Ordered List',
+    'editor:markup.inlineCode': 'Inline Code',
+    'editor:markup.keyboardKey': 'Keyboard Key',
+    'editor:markup.horizontalBar': 'Horizontal Bar',
+    'editor:markup.toggleSpellcheck': 'Toggle Spellcheck',
+    'editor:markup.togglePreviewPane': 'Toggle Preview Pane',
+    'editor:markup.insertLink': 'Insert Link',
+    'editor:markup.insertAssets': 'Insert Assets',
+    'editor:markup.insertDiagram': 'Insert Diagram',
+    'editor:markup.distractionFreeMode': 'Distraction Free Mode',
+    'editor:markup.markdownFormattingHelp': 'Markdown Formatting Help',
+    'editor:markup.noSelectionError': 'You must select some text first.',
+    'common:pageSelector.createTitle': 'Create a New Page',
+    'common:pageSelector.moveTitle': 'Move Page',
+    'common:pageSelector.selectTitle': 'Select a Page',
+    'common:pageSelector.virtualFolders': 'Folders',
+    'common:pageSelector.pages': 'Pages',
+    'common:pageSelector.folderEmptyWarning': 'This folder is empty.',
+    'common:actions.cancel': 'Cancel',
+    'common:actions.select': 'Select'
   }
 }
 

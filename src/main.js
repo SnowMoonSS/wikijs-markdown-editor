@@ -4,9 +4,6 @@ import 'vuetify/dist/vuetify.min.css'
 import '@mdi/font/css/materialdesignicons.css'
 
 // Velocity polyfill — editor-markdown uses Velocity() for preview scroll sync.
-// velocity-animate (npm) is an IIFE script that sets window.Velocity as a side
-// effect. Vite/esbuild wraps it as a CJS module, so `window.Velocity` never
-// gets set reliably. Instead, we polyfill the two calls the component uses:
 //   Velocity(el, 'stop', true)           → cancel scroll animation
 //   Velocity(el, 'scroll', { offset, duration, container }) → scroll to element
 window.Velocity = function (el, action, opts) {
@@ -17,6 +14,8 @@ window.Velocity = function (el, action, opts) {
     opts.container.scrollTop = el.offsetTop + offset
   }
 }
+// Vue components use this.Velocity (resolved via prototype chain)
+Vue.prototype.Velocity = window.Velocity
 
 // Prism plugins must be loaded before any component imports
 import Prism from 'prismjs'
@@ -26,6 +25,10 @@ import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace'
 // Set Prism autoloader languages path (CDN)
 Prism.plugins.autoloader.languages_path =
   'https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/components/'
+
+// WikiJS globally-registered components (used in editor-markdown templates)
+import PageSelector from './components/common/page-selector.vue'
+Vue.component('page-selector', PageSelector)
 
 import App from './App.vue'
 import store from './store'

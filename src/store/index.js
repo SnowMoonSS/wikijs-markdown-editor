@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import pathify from 'vuex-pathify'
+import pathify, { make } from 'vuex-pathify'
 
 Vue.use(Vuex)
 
@@ -8,36 +8,32 @@ pathify.options.mapping = 'standard'
 pathify.options.deep = true
 
 // Editor module (required by vuex-pathify for paths like 'editor/content', 'editor/activeModal')
+const editorState = {
+  content: '# Hello World\n\nWelcome to **WikiJS Markdown Editor**.\n\nStart typing your markdown here...',
+  mode: 'edit',
+  editorKey: 'markdown',
+  activeModal: '',
+  activeModalData: null
+}
+
 const editor = {
   namespaced: true,
-  state: {
-    content: '# Hello World\n\nWelcome to **WikiJS Markdown Editor**.\n\nStart typing your markdown here...',
-    mode: 'edit',
-    editorKey: 'markdown',
-    activeModal: '',
-    activeModalData: null
-  },
-  mutations: {
-    ...pathify.mutations
-  },
-  getters: {
-    ...pathify.getters
-  }
+  state: editorState,
+  mutations: make.mutations(editorState),
+  getters: make.getters(editorState)
 }
 
 // Page module (required by vuex-pathify for paths like 'page/locale', 'page/path')
+const pageState = {
+  locale: 'en',
+  path: 'home'
+}
+
 const page = {
   namespaced: true,
-  state: {
-    locale: 'en',
-    path: 'home'
-  },
-  mutations: {
-    ...pathify.mutations
-  },
-  getters: {
-    ...pathify.getters
-  }
+  state: pageState,
+  mutations: make.mutations(pageState),
+  getters: make.getters(pageState)
 }
 
 const store = new Vuex.Store({
