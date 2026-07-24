@@ -6,9 +6,31 @@ import path from 'path'
 const imsizeStub = `module.exports = { lookup: function() {}, disableFS: function() {} };`
 const detectorStub = `module.exports = function() { return null; };`
 
+// Resolve path to imsize index.js for exact matching
+const imsizeIndexPath = path.resolve(__dirname, 'node_modules/markdown-it-imsize/lib/imsize/index.js')
+const imsizeDetectorPath = path.resolve(__dirname, 'node_modules/markdown-it-imsize/lib/imsize/detector.js')
+
+/** Vite plugin: stub out Node.js-specific markdown-it-imsize modules for browser */
+function stubImSize() {
+  return {
+    name: 'stub-markdown-it-imsize',
+    resolveId(id) {
+      if (id === imsizeIndexPath) return id
+      if (id === imsizeDetectorPath) return id
+      return null
+    },
+    load(id) {
+      if (id === imsizeIndexPath) return imsizeStub
+      if (id === imsizeDetectorPath) return detectorStub
+      return null
+    }
+  }
+}
+
 export default defineConfig({
   plugins: [
-    createVuePlugin()
+    createVuePlugin(),
+    stubImSize()
   ],
   resolve: {
     alias: {
