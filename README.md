@@ -1,5 +1,7 @@
 # wikijs-markdown-editor
 
+用AI简单搓了个可视化编辑器，当wikijs完全遵循git仓库的时候会很有用，有bug的话请直接提交issue。不考虑支持其它语言。
+
 基于 [Linuxserver baseimage](https://github.com/linuxserver/docker-baseimage-alpine) 的 WikiJS Markdown Editor Docker 镜像。从 WikiJS 中提取的独立 Markdown 编辑器。
 
 [![Docker Image CI](https://github.com/snowmoonss/wikijs-markdown-editor/actions/workflows/docker-image.yml/badge.svg)](https://github.com/snowmoonss/wikijs-markdown-editor/actions/workflows/docker-image.yml)
